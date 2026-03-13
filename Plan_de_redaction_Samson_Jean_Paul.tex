@@ -1,0 +1,443 @@
+\documentclass[12pt,a4paper,oneside]{memoir}
+
+% ======================
+% ENCODAGE ET LANGUE
+% ======================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+
+% ======================
+% POLICE
+% ======================
+\usepackage{lmodern}
+
+% ======================
+% MISE EN PAGE
+% ======================
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\setlength{\headheight}{18pt}
+
+% ======================
+% COULEURS
+% ======================
+\usepackage{xcolor}
+\definecolor{mainblue}{RGB}{0,102,204}
+\definecolor{darkblue}{RGB}{0,51,102}
+
+% ======================
+% LIENS HYPERTEXTE
+% ======================
+\usepackage[pageanchor=false]{hyperref} % Evite l'avertissement 'destination with same identifier (page.1)'
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=mainblue,
+    citecolor=darkblue,
+    pdfborder={0 0 0},
+    plainpages=false
+}
+
+% ======================
+% IMAGES
+% ======================
+\usepackage{graphicx}
+\usepackage{enumitem} % Pour personnaliser les listes
+\usepackage{tikz} % Pour positionner les images en absolu
+
+% ======================
+% INTERLIGNE
+% ======================
+\OnehalfSpacing
+
+% ======================
+% SUPPRIMER PAGES BLANCHES
+% ======================
+\let\cleardoublepage\clearpage
+
+% ======================
+% BOXES POUR LE THÈME
+% ======================
+\usepackage[skins]{tcolorbox}
+
+% ======================
+% CONFIGURATION TOC (Evite les Overfull \hbox)
+% ======================
+\setlength{\cftchapternumwidth}{3em}
+
+% ======================
+% STYLE DES CHAPITRES (Ajustement espacement)
+% ======================
+\setlength{\beforechapskip}{-1.5cm}
+\setlength{\afterchapskip}{0.4cm} % Encore plus réduit pour éviter l'espace vide
+\renewcommand{\chapnamefont}{\Huge\bfseries\color{mainblue}}
+\renewcommand{\chapnumfont}{\Huge\bfseries\color{mainblue}}
+\renewcommand{\chaptitlefont}{\Huge\bfseries\color{mainblue}}
+
+% ======================
+% EN-TÊTE ET PIED DE PAGE
+% ======================
+
+% ---- Style pour toutes les pages courantes ----
+\makepagestyle{chapstyle}
+\makeevenhead{chapstyle}{\small\textcolor{darkblue}{\MakeUppercase{\leftmark}}}{}{\textcolor{darkblue}{\thepage}}
+\makeoddhead{chapstyle}{\small\textcolor{darkblue}{\MakeUppercase{\leftmark}}}{}{\textcolor{darkblue}{\thepage}}
+\makeheadrule{chapstyle}{\textwidth}{0.6pt}
+\makefootrule{chapstyle}{\textwidth}{0.4pt}{0.1cm}
+\makeevenfoot{chapstyle}{\small\textit{\textcolor{darkgray}{Réalisé par de-SOUZA J.P. \& LOKO S.}}}{}{\small\textcolor{gray}{\textit{Mémoire de fin de cycle}}}
+\makeoddfoot{chapstyle}{\small\textit{\textcolor{darkgray}{Réalisé par de-SOUZA J.P. \& LOKO S.}}}{}{\small\textcolor{gray}{\textit{Mémoire de fin de cycle}}}
+
+\pagestyle{chapstyle}
+
+% ---- Style spécifique "plain" (1ere page de chaque chapitre) ----
+% Rétabli comme demandé par l'utilisateur
+\makeevenhead{plain}{\small\textcolor{darkblue}{\MakeUppercase{\leftmark}}}{}{\textcolor{darkblue}{\thepage}}
+\makeoddhead{plain}{\small\textcolor{darkblue}{\MakeUppercase{\leftmark}}}{}{\textcolor{darkblue}{\thepage}}
+\makeheadrule{plain}{\textwidth}{0.6pt}
+\makefootrule{plain}{\textwidth}{0.4pt}{0.1cm}
+\makeevenfoot{plain}{\small\textit{\textcolor{darkgray}{Réalisé par de-SOUZA J.P. \& LOKO S.}}}{}{\small\textcolor{gray}{\textit{Mémoire de fin de cycle}}}
+\makeoddfoot{plain}{\small\textit{\textcolor{darkgray}{Réalisé par de-SOUZA J.P. \& LOKO S.}}}{}{\small\textcolor{gray}{\textit{Mémoire de fin de cycle}}}
+
+% ---- Configuration pour redéfinir le rendu complet des chapitres ----
+\aliaspagestyle{chapter}{plain}
+
+\renewcommand{\chaptermark}[1]{%
+	\markboth{Chapitre \thechapter. #1}{}%
+}
+
+% ======================
+% NUMÉROTATION DES SOUS-SECTIONS
+% ======================
+\setsecnumdepth{subsubsection}
+\maxsecnumdepth{subsubsection}
+
+% ======================
+% INFOS DOCUMENT
+% ======================
+\title{\textbf{Conception d’un système numérique de gestion\\
+		du recrutement des stagiaires dans une entreprise}}
+\author{LOKO Samson \\ de-SOUZA Jean-Paul}
+\date{11 mars 2026}
+
+% ======================
+% DOCUMENT
+% ======================
+\begin{document}
+	
+	% ======================
+	% PAGE DE TITRE INITIALE
+	% ======================
+	\thispagestyle{empty}
+	\begin{center}
+		\vspace*{4cm}
+		{\Huge \textsc{Rapport de mini soutenance}}\\[2cm] % \textbf enleve pour eviter bx/sc undefined
+		
+		\makeatletter
+		{\LARGE \textbf{\@title}}\\[2.5cm]
+		
+		{\Large Présenté par :}\\[0.5cm]
+		{\Large \textbf{\@author}}\\[2cm]
+		
+		{\large \textit{\@date}}
+		\makeatother
+	\end{center}
+	\vfill
+	\cleardoublepage
+	
+	% ======================
+	% PAGE DE GARDE
+	% ======================
+	\begin{titlingpage}
+		\thispagestyle{empty}
+		\newgeometry{top=1.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm}
+		
+		% Bordure de page royale / professionnelle
+		\begin{tikzpicture}[remember picture, overlay]
+			\draw[line width=2pt, color=darkblue] 
+				([xshift=0.7cm, yshift=-0.7cm]current page.north west) 
+				rectangle 
+				([xshift=-0.7cm, yshift=0.7cm]current page.south east);
+			\draw[line width=0.8pt, color=mainblue] 
+				([xshift=0.9cm, yshift=-0.9cm]current page.north west) 
+				rectangle 
+				([xshift=-0.9cm, yshift=0.9cm]current page.south east);
+			% Petits coins de décoration
+			\foreach \x/\y in {north west/south east, north east/south west, south west/north east, south east/north west}
+				\fill[darkblue] ([xshift=0.7cm, yshift=-0.7cm]current page.\x) circle (2pt);
+		\end{tikzpicture}
+		
+		\begin{tikzpicture}[remember picture,overlay]
+			\node[anchor=north west,xshift=1.5cm,yshift=-1.2cm] at (current page.north west) 
+			{\includegraphics[width=2.5cm]{logo.png}};
+			\node[anchor=north east,xshift=-1.5cm,yshift=-1.2cm] at (current page.north east)
+			{\includegraphics[width=2.2cm]{logo-uac.png}};
+		\end{tikzpicture}
+		
+		\vspace*{-0.5cm}
+		
+		\begin{center}
+			% ====================== EN-TÊTE CENTRAL ======================
+			{\large \textbf{\textcolor{mainblue}{RÉPUBLIQUE DU BÉNIN}}}\\[0.15cm]
+			\textcolor{mainblue}{*******}\\[0.15cm]
+			{\large \textbf{\textcolor{darkblue}{MINISTÈRE DE L’ENSEIGNEMENT SUPÉRIEUR ET DE\\ LA RECHERCHE SCIENTIFIQUE}}}\\[0.15cm]
+			\textcolor{darkblue}{*******}\\[0.15cm]
+			{\large \textbf{ÉCOLE SUPÉRIEURE DE COMMERCE ET D’ADMINISTRATION DES ENTREPRISES DU BÉNIN}}\\[0.1cm]
+			{\normalsize \textbf{(ESCAE-BÉNIN)}}\\[1.2cm]
+			
+			% ====================== FILIÈRE ET OPTION ======================
+			{\normalsize \textbf{Filière :} Système Informatique et Logiciel (SIL) \hfill \textbf{Licence :} 2}\\[0.2cm]
+			{\normalsize \textbf{Option :} Informatique}
+			
+			\vspace{1cm}
+			
+			% ====================== THÈME (Design Premium - Forme Originale) ======================
+			\begin{tcolorbox}[enhanced, 
+				colback=white, 
+				colframe=mainblue, 
+				width=0.98\textwidth, 
+				center, 
+				boxrule=0pt,
+				sharp corners,
+				rounded corners=northeast, arc=20pt, % Forme asymétrique
+				frame hidden,
+				interior style={left color=mainblue!15, right color=white}, % Dégradé latéral
+				shadow={4pt}{-4pt}{2pt}{black!15!white},
+				underlay={
+					\draw[mainblue, line width=3pt] (frame.north west) -- (frame.north east);
+					\draw[darkblue, line width=3pt] (frame.south west) -- (frame.south east);
+					\draw[mainblue!50, line width=1pt] (frame.north west) -- (frame.south west);
+				},
+				top=0.8cm, bottom=0.8cm]
+				\centering
+				{\large \textbf{\textcolor{darkblue}{THÈME :}}}\\[0.6cm]
+				{\Large \textbf{\textcolor{mainblue}{CONCEPTION D’UN SYSTÈME NUMÉRIQUE DE GESTION\\[0.3cm] DU RECRUTEMENT DES STAGIAIRES DANS UNE ENTREPRISE}}}
+			\end{tcolorbox}
+			
+			\vspace{1.5cm}
+			
+			% ====================== RÉALISÉ PAR ET SUPERVISÉ PAR ======================
+			\begin{minipage}[t]{0.45\textwidth}
+				\begin{flushleft} \normalsize
+					\textbf{Réalisé par :}\\[0.4cm]
+					\textbf{de-SOUZA Jean-Paul} \\[0.15cm]
+					\hspace*{2cm}\& \\[0.15cm]
+					\textbf{LOKO Samson}
+				\end{flushleft}
+			\end{minipage}
+			\hfill
+			\begin{minipage}[t]{0.45\textwidth}
+				\begin{flushright} \normalsize
+					\textbf{Sous la supervision de :}\\[0.4cm]
+					\textbf{M. HOUENOU SEZAN Harrisson} \\[0.15cm]
+					\textit{Data scientist}
+				\end{flushright}
+			\end{minipage}
+			
+			\vfill
+			% ====================== ANNÉE ACADÉMIQUE ======================
+			{\large \textbf{\textcolor{darkblue}{Année académique : 2025 - 2026}}}
+			
+		\end{center}
+		\restoregeometry
+	\end{titlingpage}
+	
+	% ======================
+	% FRONT MATTER (Numérotation Romaine)
+	% ======================
+	\cleardoublepage
+	\pagenumbering{Roman}
+	\setcounter{page}{1}
+	\pagestyle{chapstyle} % On s'assure que le style est actif pour les dédicaces
+	
+	% --- Dédicaces 1 ---
+	\chapter*{Dédicaces 1}
+	\addcontentsline{toc}{chapter}{Dédicaces 1}
+	\markboth{Dédicaces 1}{}
+	Je dédie ce travail à mes parents pour les sacrifices consentis à mon
+	égard, pour leur patience, leur amour et leur confiance en moi. Mon frère et
+	ma sœur, mes oncles, tantes, cousins et cousines pour leurs bienveillances et
+	leurs encouragements constants. Aux enseignants qui m’ont transmis le
+	savoir.
+	
+	\begin{flushright}
+	\textbf{Samson LOKO}
+	\end{flushright}
+	
+	% --- Dédicaces 2 ---
+	\cleardoublepage
+	\chapter*{Dédicaces 2}
+	\addcontentsline{toc}{chapter}{Dédicaces 2}
+	\markboth{Dédicaces 2}{}
+	À mes chers parents pour leur soutien et leurs sacrifices sans failles qui
+	m’ont permis d’arriver jusqu’ici. Je dédie aussi ce mémoire à ma grande
+	sœur, pour sa bienveillance et ses encouragements constants, aux
+	enseignants qui m’ont transmis des savoirs.
+	
+	\begin{flushright}
+	\textbf{de-SOUZA Jean-Paul}
+	\end{flushright}
+	
+	% --- Remerciements ---
+	\cleardoublepage
+	\chapter*{Remerciements}
+	\addcontentsline{toc}{chapter}{Remerciements}
+	\markboth{Remerciements}{}
+	Au terme de ce travail, nous tenons à exprimer notre profonde
+	gratitude et nos sincères remerciements à notre maître mémoire M. HOUENOU SEZAN Harrisson pour tout le temps qu’il nous a consacré, ses directives précieuses,
+	et pour la qualité de son suivi durant toute la période de ce projet. Nous
+	tenons aussi à remercier les chers membres de l’Université pour leurs soutiens
+	et leurs encouragements. Nous tenons aussi à remercier les membres de jury
+	qui ont accepté de juger notre travail. Nos plus vifs remerciements
+	s’adressent à nos enseignants et à tout le cadre directorial et administratif du
+	département informatique. Nos remerciements vont enfin à toute personne
+	qui a contribué de près ou de loin à l’élaboration de ce travail.
+	
+	% --- Liste des sigles et abréviations ---
+	\cleardoublepage
+	\chapter*{Liste des sigles et abréviations}
+	\addcontentsline{toc}{chapter}{Sigles et abréviations} % Raccourci pour éviter le dépassement de marge
+	\markboth{Liste des sigles et abréviations}{}
+	\begin{itemize}
+		\item \textbf{MCD} : Modèle Conceptuel de Données
+		\item \textbf{MLD} : Modèle Logique de Données
+		\item \textbf{SIL} : Système Informatique et Logiciel
+		\item \textbf{UML} : Unified Modeling Language
+	\end{itemize}
+	
+	% --- Liste des figures ---
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Liste des figures} % Raccourci pour éviter le dépassement de marge
+	\markboth{Liste des figures}{}
+	\listoffigures
+	
+	% --- Résumé ---
+	\cleardoublepage
+	\chapter*{Résumé}
+	\addcontentsline{toc}{chapter}{Résumé}
+	\markboth{Résumé}{}
+	Ce rapport présente la conception et le développement d'un système numérique de gestion visant à optimiser le processus de recrutement des stagiaires au sein d'une entreprise. Destinée principalement aux élèves de lycée technique, aux étudiants en quête d'expérience pratique et aux entreprises offrant des opportunités, la plateforme permettra de centraliser les candidatures, de faciliter la diffusion d'offres et d'assurer un suivi fluide et transparent des postulants. En répondant aux enjeux actuels d'accès aux stages et de gestion des recrutements, la solution propose une interface intuitive conçue pour moderniser et simplifier la mise en relation professionnelle.
+	
+	% --- Abstract ---
+	\cleardoublepage
+	\chapter*{Abstract}
+	\addcontentsline{toc}{chapter}{Abstract}
+	\markboth{Abstract}{}
+	This report presents the design and development of a digital management system aimed at optimizing the internship recruitment process within a company. Primarily targeting technical high school students, university students seeking practical experience, and companies offering opportunities, the platform will centralize applications, facilitate the dissemination of offers, and ensure a smooth and transparent tracking of applicants. By addressing the current challenges of access to internships and recruitment management, the solution offers an intuitive interface designed to modernize and simplify professional matchmaking.
+	
+	% --- Sommaire ---
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Sommaire}
+	\markboth{Sommaire}{}
+	\renewcommand{\contentsname}{SOMMAIRE}
+	\setcounter{tocdepth}{1} % Seulement les chapitres et sections pour le sommaire
+	\tableofcontents
+
+	% ======================
+	% MAIN DOCUMENT (Numérotation Arabe)
+	% ======================
+	\cleardoublepage
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	
+	% --- Titre dans l'en-tête (pour éviter les dépassements hbox sur la ToC) ---
+	\def\toclevel@chapter{0}
+
+	% ======================
+	% INTRODUCTION
+	% ======================
+	\hypersetup{pageanchor=true} % On réactive hyperref page anchor seulement ici pour le document Arabe
+	\chapter*{Introduction Générale}
+	\addcontentsline{toc}{chapter}{Introduction} 
+	\markboth{Introduction Générale}{}
+	
+	L'insertion professionnelle des jeunes diplômés constitue aujourd'hui un enjeu majeur pour le développement socio-économique, et le stage, véritable passerelle entre la formation théorique et le monde du travail, s'impose comme une étape indispensable. Ce premier contact avec l'entreprise permet aux apprenants de se confronter aux réalités du terrain et de consolider leurs acquis techniques. Pourtant, malgré cette importance capitale, le processus de recrutement des stagiaires demeure souvent complexe et désorganisé, créant des frustrations tant pour les candidats que pour les recruteurs.
+	
+	Actuellement, nos cibles principales — les \textbf{élèves au lycée technique} et les \textbf{étudiants} de l'enseignement supérieur — peinent à identifier des offres de stage adaptées à leurs profils respectifs. Parallèlement, les \textbf{entreprises} sont fréquemment submergées par des flux de candidatures non structurées, ce qui rend la sélection des profils adéquats particulièrement ardue. Ce manque de centralisation et de transparence dans la diffusion des opportunités freine la fluidité de la mise en relation et souligne l'urgence de moderniser ces pratiques à travers des solutions numériques dédiées.
+	
+	L'objectif principal de ce mémoire est donc de concevoir et de réaliser un système numérique performant capable d'optimiser la gestion du recrutement des stagiaires. Cette plateforme vise à offrir aux \textbf{entreprises} un outil moderne et intuitif pour publier leurs offres et gérer les postulants de manière centralisée. Pour les \textbf{élèves et étudiants}, elle constituera un espace privilégié pour accéder facilement à des opportunités ciblées et assurer un suivi transparent de l'état de leurs dossiers de candidature, contribuant ainsi à une meilleure insertion professionnelle globale.
+	
+	Pour mener à bien ce projet, notre méthodologie générale repose initialement sur une phase de recherche documentaire approfondie et une analyse rigoureuse de l'existant. Nous avons ensuite adopté l'approche UML pour la modélisation et la conception du système, afin de garantir une architecture logicielle robuste. Le développement technique de la solution s'appuie sur des technologies web modernes, sélectionnées pour leur performance et leur capacité à offrir une expérience utilisateur fluide et professionnelle, répondant ainsi aux standards actuels de l'industrie numérique.
+	
+	Le présent document s'organise autour de trois axes de développement fondamentaux. Le premier axe traite du cadre théorique et conceptuel à travers une revue de littérature dédiée aux systèmes de gestion et de recrutement. Le deuxième axe est consacré à l'étude technique et à la conception fonctionnelle de la plateforme, détaillant les besoins spécifiques et les modèles de données. Enfin, le troisième axe présente la réalisation technique, l'implémentation des fonctionnalités clés ainsi que les résultats obtenus à l'issue des phases de test et de déploiement de la solution.
+	
+	% ======================
+	% CHAPITRES (exemples)
+	% ======================
+	\chapter{Revue de la littérature}
+	\section{Définitions et concepts clés}
+	\section{Travaux antérieurs}
+	\section{Approches existantes}
+	\section{Limites des approches}
+	\section{Proposition d’une approche de solution}
+	
+	\chapter{Méthodologie et Conception}
+	\section{Présentation de la méthodologie adoptée}
+	\section{Collecte des informations et des besoins}
+	\section{Identification des besoins du système}
+	\section{Choix des outils et technologies utilisés}
+	\section{Méthode de modélisation du système}
+	\subsection{Modélisation UML}
+	\subsubsection{Diagramme de cas d'utilisation}
+	\subsubsection{Diagramme de classes}
+	\subsubsection{Diagramme de séquence}
+	\subsubsection{Diagramme d'activité}
+	\subsection{Modélisation de la base de données}
+	\subsubsection{Modèle Conceptuel de Données (MCD)}
+	\subsubsection{Modèle Logique de Données (MLD)}
+	
+	\chapter{Analyse et Réalisation du Système Proposé}
+	\section{Analyse du système proposé}
+	\subsection{Objectifs du système}
+	\subsection{Fonctionnalités principales}
+	\subsection{Contraintes du système}
+	\subsection{Avantages du système}
+	\section{Identification des acteurs}
+	\begin{itemize}
+		\item Administrateur
+		\item Entreprise
+		\item Étudiant
+	\end{itemize}
+	\section{Réalisation et implémentation}
+	\subsection{Environnement de développement}
+	\subsubsection{Langages utilisés}
+	\subsubsection{Outils utilisés}
+	\subsection{Développement des fonctionnalités}
+	\subsection{Présentation des interfaces}
+	\subsection{Tests et validation}
+	
+	\chapter*{Conclusion Générale}
+	\addcontentsline{toc}{chapter}{Conclusion Générale}
+	\markboth{Conclusion Générale}{}
+	
+	\textbf{Bilan du travail}
+	
+	\textbf{Apports et limites}
+	
+	\textbf{Suggestions pour des travaux futurs}
+	
+	\chapter*{Bibliographie}
+	\addcontentsline{toc}{chapter}{Bibliographie}
+	\markboth{Bibliographie}{}
+	Liste des sources
+	
+	\chapter*{Annexes}
+	\addcontentsline{toc}{chapter}{Annexes}
+	\markboth{Annexes}{}
+	\begin{itemize}
+		\item Extrait d'image de la plateforme
+		\item Questionnaires
+		\item Schémas détaillés
+	\end{itemize}
+	
+	% --- Table des matières (en bas du document) ---
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Table des matières}
+	\renewcommand{\contentsname}{Table des matières}
+	\setcounter{tocdepth}{3} % On affiche tout dans la table des matières finale
+	\tableofcontents
+	
+\end{document}
