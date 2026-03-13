@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.9)  13 MAR 2026 10:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.9)  13 MAR 2026 12:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -949,12 +949,12 @@ Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.9.0'
 )))
 Package french3.ldf Info: Setting StandardItemizeEnv=true for
 (french3.ldf)             compatibility with enumitem package,
-(french3.ldf)             reported on input line 126.
+(french3.ldf)             reported on input line 135.
 Package french3.ldf Info: Setting StandardEnumerateEnv=true for
 (french3.ldf)             compatibility with enumitem package,
-(french3.ldf)             reported on input line 126.
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 12
-6.
+(french3.ldf)             reported on input line 135.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 13
+5.
  (C:\Program Files\MiKTeX\tex/latex/lm\t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -964,25 +964,25 @@ Package babel Info: 'french' activates 'french' shorthands.
 )
 \openout1 = `Plan_de_redaction_Samson_Jean_Paul.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Info: Redefining \degres on input line 126.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Info: Redefining \degres on input line 135.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1039,13 +1039,43 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 (C:\Program Files\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring ON on input line 126.
+Package hyperref Info: Link coloring ON on input line 135.
 
 (Plan_de_redaction_Samson_Jean_Paul.out)
 (Plan_de_redaction_Samson_Jean_Paul.out)
 \@outlinefile=\write5
 \openout5 = `Plan_de_redaction_Samson_Jean_Paul.out'.
 
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
+92.
+
+(C:\Program Files\MiKTeX\tex/latex/lm\ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
+92.
+
+(C:\Program Files\MiKTeX\tex/latex/lm\omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+192.
+
+(C:\Program Files\MiKTeX\tex/latex/lm\omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+192.
+
+(C:\Program Files\MiKTeX\tex/latex/lm\omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 192.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 192.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 192.
  [1
 
 {C:/Users/HP/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Program Files
@@ -1085,19 +1115,19 @@ Package hyperref Info: Link coloring ON on input line 126.
 <logo.png, id=142, 104.39pt x 43.16125pt>
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 172.
+Package pdftex.def Info: logo.png  used on input line 225.
 (pdftex.def)             Requested size: 71.13188pt x 29.41182pt.
 <logo-uac.png, id=144, 216.81pt x 216.81pt>
 File: logo-uac.png Graphic file (type png)
 <use logo-uac.png>
-Package pdftex.def Info: logo-uac.png  used on input line 174.
+Package pdftex.def Info: logo-uac.png  used on input line 227.
 (pdftex.def)             Requested size: 62.59596pt x 62.59538pt.
  [1
 
 
  <./logo.png> <./logo-uac.png>]
 Package babel Info: 'french' activates 'french' shorthands.
-(babel)             Reported on input line 268.
+(babel)             Reported on input line 322.
  [1
 
 
@@ -1122,56 +1152,10 @@ Package babel Info: 'french' activates 'french' shorthands.
 
 
 ]
-(Plan_de_redaction_Samson_Jean_Paul.toc
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
-.
-
-(C:\Program Files\MiKTeX\tex/latex/lm\ot1lmr.fd
-File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
-.
-
-(C:\Program Files\MiKTeX\tex/latex/lm\omllmm.fd
-File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-2.
-
-(C:\Program Files\MiKTeX\tex/latex/lm\omslmsy.fd
-File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-2.
-
-(C:\Program Files\MiKTeX\tex/latex/lm\omxlmex.fd
-File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 2.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 2.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 2.
-
-Overfull \hbox (2.41269pt too wide) detected at line 9
- \T1/lmr/bx/n/12 VII
- []
-
-
-Overfull \hbox (7.81567pt too wide) detected at line 10
- \T1/lmr/bx/n/12 VIII
- []
-
-
-Overfull \hbox (7.81567pt too wide) detected at line 11
- \T1/lmr/bx/n/12 VIII
- []
-
-[8
+(Plan_de_redaction_Samson_Jean_Paul.toc [8
 
 ]) [9]
-Package hyperref Info: Option `pageanchor' set `true' on input line 351.
+Package hyperref Info: Option `pageanchor' set `true' on input line 405.
  [1
 
 
@@ -1179,71 +1163,56 @@ Package hyperref Info: Option `pageanchor' set `true' on input line 351.
 Chapitre 1.
 [2
 
-]
+] [3]
 Chapitre 2.
-[3
+[4
 
 ]
 Chapitre 3.
-[4
-
-] [5
+[5
 
 ] [6
 
 ] [7
 
-] (Plan_de_redaction_Samson_Jean_Paul.toc
-Overfull \hbox (2.41269pt too wide) detected at line 9
- \T1/lmr/bx/n/12 VII
- []
+] [8
 
+] (Plan_de_redaction_Samson_Jean_Paul.toc [9
 
-Overfull \hbox (7.81567pt too wide) detected at line 10
- \T1/lmr/bx/n/12 VIII
- []
-
-
-Overfull \hbox (7.81567pt too wide) detected at line 11
- \T1/lmr/bx/n/12 VIII
- []
-
-[8
-
-]) [9]
+]) [10]
 \tf@lof=\write6
 \openout6 = `Plan_de_redaction_Samson_Jean_Paul.lof'.
 
 \tf@toc=\write7
 \openout7 = `Plan_de_redaction_Samson_Jean_Paul.toc'.
 
- (Plan_de_redaction_Samson_Jean_Paul.aux)
+
+(Plan_de_redaction_Samson_Jean_Paul.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `Plan_de_redaction_Samson_Jean_Paul.out' has 
 not changed.
-(rerunfilecheck)             Checksum: 77951B5DB6CDF8B450432C5B32677E43;5323.
+(rerunfilecheck)             Checksum: C7A2F51FAA58DF153EF69A2AD27EE5A4;5313.
  ) 
 Here is how much of TeX's memory you used:
- 29107 strings out of 467871
- 561830 string characters out of 5428453
- 1024870 words of memory out of 5000000
- 57498 multiletter control sequences out of 15000+600000
+ 29206 strings out of 467871
+ 563756 string characters out of 5428453
+ 1025910 words of memory out of 5000000
+ 57596 multiletter control sequences out of 15000+600000
  688713 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 85i,13n,94p,752b,1042s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 85i,13n,94p,752b,1036s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Program Files/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/M
 iKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Program Files/MiKTeX/fonts/type1/pu
 blic/lm/lmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/
-Program Files/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Program Files/MiKTeX/f
-onts/type1/public/lm/lmri10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/
-lmri12.pfb>
-Output written on Plan_de_redaction_Samson_Jean_Paul.pdf (20 pages, 291061 byte
+Program Files/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Program Files/MiKTeX/
+fonts/type1/public/lm/lmri12.pfb>
+Output written on Plan_de_redaction_Samson_Jean_Paul.pdf (21 pages, 273193 byte
 s).
 PDF statistics:
- 379 PDF objects out of 1000 (max. 8388607)
- 70 named destinations out of 1000 (max. 500000)
+ 378 PDF objects out of 1000 (max. 8388607)
+ 71 named destinations out of 1000 (max. 500000)
  285 words of extra memory for PDF output out of 10000 (max. 10000000)
 

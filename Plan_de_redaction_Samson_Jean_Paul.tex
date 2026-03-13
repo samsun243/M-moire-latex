@@ -64,16 +64,26 @@
 % ======================
 % CONFIGURATION TOC (Evite les Overfull \hbox)
 % ======================
-\setlength{\cftchapternumwidth}{3em}
+\setlength{\cftchapternumwidth}{4.5em}
+\setlength{\cftsectionnumwidth}{4em}
+\setlength{\cftsubsectionnumwidth}{4.5em}
+\setpnumwidth{3em} % Largeur pour les numéros de page
+\setrmarg{4em}    % Marge à droite pour éviter les débordements
 
 % ======================
 % STYLE DES CHAPITRES (Ajustement espacement)
 % ======================
 \setlength{\beforechapskip}{-1.5cm}
-\setlength{\afterchapskip}{0.4cm} % Encore plus réduit pour éviter l'espace vide
+\setlength{\afterchapskip}{0.4cm} 
 \renewcommand{\chapnamefont}{\Huge\bfseries\color{mainblue}}
 \renewcommand{\chapnumfont}{\Huge\bfseries\color{mainblue}}
 \renewcommand{\chaptitlefont}{\Huge\bfseries\color{mainblue}}
+
+% On supprime le texte "Chapitre X" du corps de la page (déjà dans l'en-tête)
+\renewcommand{\printchaptername}{}
+\renewcommand{\chapternamenum}{}
+\renewcommand{\printchapternum}{}
+\renewcommand{\afterchapternum}{}
 
 % ======================
 % EN-TÊTE ET PIED DE PAGE
@@ -85,22 +95,21 @@
 \makeoddhead{chapstyle}{\small\textcolor{darkblue}{\MakeUppercase{\leftmark}}}{}{\textcolor{darkblue}{\thepage}}
 \makeheadrule{chapstyle}{\textwidth}{0.6pt}
 \makefootrule{chapstyle}{\textwidth}{0.4pt}{0.1cm}
-\makeevenfoot{chapstyle}{\small\textit{\textcolor{darkgray}{Réalisé par de-SOUZA J.P. \& LOKO S.}}}{}{\small\textcolor{gray}{\textit{Mémoire de fin de cycle}}}
-\makeoddfoot{chapstyle}{\small\textit{\textcolor{darkgray}{Réalisé par de-SOUZA J.P. \& LOKO S.}}}{}{\small\textcolor{gray}{\textit{Mémoire de fin de cycle}}}
+\makeevenfoot{chapstyle}{\small\textit{\textcolor{darkgray}{Réalisé par de-SOUZA J.P. \& LOKO S.}}}{}{\small\textcolor{gray}{\textit{Mémoire de mini-soutenance}}}
+\makeoddfoot{chapstyle}{\small\textit{\textcolor{darkgray}{Réalisé par de-SOUZA J.P. \& LOKO S.}}}{}{\small\textcolor{gray}{\textit{Mémoire de mini-soutenance}}}
 
 \pagestyle{chapstyle}
 
 % ---- Style spécifique "plain" (1ere page de chaque chapitre) ----
-% Rétabli comme demandé par l'utilisateur
+\makepagestyle{plain}
 \makeevenhead{plain}{\small\textcolor{darkblue}{\MakeUppercase{\leftmark}}}{}{\textcolor{darkblue}{\thepage}}
 \makeoddhead{plain}{\small\textcolor{darkblue}{\MakeUppercase{\leftmark}}}{}{\textcolor{darkblue}{\thepage}}
 \makeheadrule{plain}{\textwidth}{0.6pt}
 \makefootrule{plain}{\textwidth}{0.4pt}{0.1cm}
-\makeevenfoot{plain}{\small\textit{\textcolor{darkgray}{Réalisé par de-SOUZA J.P. \& LOKO S.}}}{}{\small\textcolor{gray}{\textit{Mémoire de fin de cycle}}}
-\makeoddfoot{plain}{\small\textit{\textcolor{darkgray}{Réalisé par de-SOUZA J.P. \& LOKO S.}}}{}{\small\textcolor{gray}{\textit{Mémoire de fin de cycle}}}
-
-% ---- Configuration pour redéfinir le rendu complet des chapitres ----
+\makeevenfoot{plain}{\small\textit{\textcolor{darkgray}{Réalisé par de-SOUZA J.P. \& LOKO S.}}}{}{\small\textcolor{gray}{\textit{Mémoire de mini-soutenance}}}
+\makeoddfoot{plain}{\small\textit{\textcolor{darkgray}{Réalisé par de-SOUZA J.P. \& LOKO S.}}}{}{\small\textcolor{gray}{\textit{Mémoire de mini-soutenance}}}
 \aliaspagestyle{chapter}{plain}
+
 
 \renewcommand{\chaptermark}[1]{%
 	\markboth{Chapitre \thechapter. #1}{}%
@@ -118,7 +127,7 @@
 \title{\textbf{Conception d’un système numérique de gestion\\
 		du recrutement des stagiaires dans une entreprise}}
 \author{LOKO Samson \\ de-SOUZA Jean-Paul}
-\date{11 mars 2026}
+\date{13 mars 2026}
 
 % ======================
 % DOCUMENT
@@ -126,23 +135,67 @@
 \begin{document}
 	
 	% ======================
-	% PAGE DE TITRE INITIALE
+	% PAGE DE TITRE INITIALALE (Artistique)
 	% ======================
 	\thispagestyle{empty}
+	
+	% Arrière-plan artistique (Bulles et formes)
+	\begin{tikzpicture}[remember picture, overlay]
+		% Fond dégradé subtil
+		\fill[mainblue!5] (current page.north west) rectangle (current page.south east);
+		
+		% Bulles/Cercles décoratifs
+		\foreach \i in {1,...,15}{
+			\pgfmathsetseed{\i*123}
+			\pgfmathsetmacro{\xpos}{rand*10}
+			\pgfmathsetmacro{\ypos}{rand*15}
+			\pgfmathsetmacro{\size}{0.5+rnd*2}
+			\pgfmathsetmacro{\opac}{0.05+rnd*0.2}
+			\fill[mainblue, opacity=\opac] ([xshift=\xpos cm, yshift=\ypos cm]current page.center) circle (\size cm);
+		}
+		
+		% Grandes formes géométriques de coin
+		\fill[darkblue!10] (current page.north east) -- ++(-8,0) -- ++(8,-8) -- cycle;
+		\fill[mainblue!10] (current page.south west) -- ++(6,0) -- ++(-6,6) -- cycle;
+		
+		% Ligne verticale de style
+		\draw[line width=1.5pt, color=mainblue!40] ([xshift=1.5cm]current page.north west) -- ([xshift=1.5cm]current page.south west);
+	\end{tikzpicture}
+
 	\begin{center}
-		\vspace*{4cm}
-		{\Huge \textsc{Rapport de mini soutenance}}\\[2cm] % \textbf enleve pour eviter bx/sc undefined
+		\vspace*{2.5cm}
+		
+		\begin{tcolorbox}[enhanced, 
+			colback=white, 
+			colframe=darkblue, 
+			width=0.85\textwidth, 
+			arc=0pt, 
+			boxrule=0pt,
+			top=0.5cm, bottom=0.5cm,
+			shadow={5pt}{-5pt}{0pt}{mainblue!20},
+			borderline north={1.5pt}{0pt}{darkblue},
+			borderline south={1.5pt}{0pt}{darkblue}]
+			\centering
+			{\Huge \textsc{Rapport de mini soutenance}}
+		\end{tcolorbox}
+		
+		\vspace{2.5cm}
 		
 		\makeatletter
-		{\LARGE \textbf{\@title}}\\[2.5cm]
+		{\large \textcolor{darkgray}{THÈME :}}\\[0.8cm]
+		{\LARGE \textbf{\textcolor{darkblue}{\@title}}}\\[3cm]
 		
-		{\Large Présenté par :}\\[0.5cm]
-		{\Large \textbf{\@author}}\\[2cm]
+		\begin{minipage}{0.6\textwidth}
+			\centering
+			{\large Présenté par :}\\[0.6cm]
+			{\Large \textbf{\@author}}
+		\end{minipage}
 		
-		{\large \textit{\@date}}
+		\vfill
+		
+		{\large \textit{\textcolor{mainblue}{\@date}}}
 		\makeatother
 	\end{center}
-	\vfill
 	\cleardoublepage
 	
 	% ======================
@@ -251,9 +304,10 @@
 	\pagestyle{chapstyle} % On s'assure que le style est actif pour les dédicaces
 	
 	% --- Dédicaces 1 ---
-	\chapter*{Dédicaces 1}
-	\addcontentsline{toc}{chapter}{Dédicaces 1}
-	\markboth{Dédicaces 1}{}
+	\chapter*{Dédicace 1}
+	\thispagestyle{chapstyle} % Force le style avec pied de page
+	\addcontentsline{toc}{chapter}{Dédicace 1}
+	\markboth{Dédicace 1}{}
 	Je dédie ce travail à mes parents pour les sacrifices consentis à mon
 	égard, pour leur patience, leur amour et leur confiance en moi. Mon frère et
 	ma sœur, mes oncles, tantes, cousins et cousines pour leurs bienveillances et
@@ -266,9 +320,9 @@
 	
 	% --- Dédicaces 2 ---
 	\cleardoublepage
-	\chapter*{Dédicaces 2}
-	\addcontentsline{toc}{chapter}{Dédicaces 2}
-	\markboth{Dédicaces 2}{}
+	\chapter*{Dédicace 2}
+	\addcontentsline{toc}{chapter}{Dédicace 2}
+	\markboth{Dédicace 2}{}
 	À mes chers parents pour leur soutien et leurs sacrifices sans failles qui
 	m’ont permis d’arriver jusqu’ici. Je dédie aussi ce mémoire à ma grande
 	sœur, pour sa bienveillance et ses encouragements constants, aux
@@ -353,25 +407,34 @@
 	\addcontentsline{toc}{chapter}{Introduction} 
 	\markboth{Introduction Générale}{}
 	
-	L'insertion professionnelle des jeunes diplômés constitue aujourd'hui un enjeu majeur pour le développement socio-économique, et le stage, véritable passerelle entre la formation théorique et le monde du travail, s'impose comme une étape indispensable. Ce premier contact avec l'entreprise permet aux apprenants de se confronter aux réalités du terrain et de consolider leurs acquis techniques. Pourtant, malgré cette importance capitale, le processus de recrutement des stagiaires demeure souvent complexe et désorganisé, créant des frustrations tant pour les candidats que pour les recruteurs.
+	L'insertion professionnelle des jeunes diplômés représente un défi pour le marché de l'emploi actuel. Dans ce contexte, le stage est souvent considéré comme une modalité d'apprentissage permettant d'établir une transition entre le monde académique et le milieu professionnel. Cette immersion théoriquement formatrice offre aux apprenants l'opportunité de découvrir les exigences du terrain et d'éprouver leurs compétences techniques en situation réelle.
 	
-	Actuellement, nos cibles principales — les \textbf{élèves au lycée technique} et les \textbf{étudiants} de l'enseignement supérieur — peinent à identifier des offres de stage adaptées à leurs profils respectifs. Parallèlement, les \textbf{entreprises} sont fréquemment submergées par des flux de candidatures non structurées, ce qui rend la sélection des profils adéquats particulièrement ardue. Ce manque de centralisation et de transparence dans la diffusion des opportunités freine la fluidité de la mise en relation et souligne l'urgence de moderniser ces pratiques à travers des solutions numériques dédiées.
+	Toutefois, l'accès à ces opportunités semble parfois entravé par des processus de recrutement dont l'organisation pourrait être optimisée. Les populations cibles de cette étude  à savoir les \textbf{élèves au lycée technique} et les \textbf{étudiants} du supérieur  font parfois face à des difficultés pour identifier des offres correspondant à leurs parcours. De leur côté, les \textbf{entreprises} reçoivent un volume de candidatures dont le traitement manuel peut s'avérer complexe, soulignant ainsi un besoin potentiel de structuration et de centralisation des flux d'information par des outils numériques adaptés.
 	
-	L'objectif principal de ce mémoire est donc de concevoir et de réaliser un système numérique performant capable d'optimiser la gestion du recrutement des stagiaires. Cette plateforme vise à offrir aux \textbf{entreprises} un outil moderne et intuitif pour publier leurs offres et gérer les postulants de manière centralisée. Pour les \textbf{élèves et étudiants}, elle constituera un espace privilégié pour accéder facilement à des opportunités ciblées et assurer un suivi transparent de l'état de leurs dossiers de candidature, contribuant ainsi à une meilleure insertion professionnelle globale.
+	Le présent travail se propose donc d'explorer la conception d'un système numérique dédié à la gestion du recrutement des stagiaires. L'ambition de ce projet est de mettre à disposition des \textbf{entreprises} une interface centralisée pour la diffusion de leurs offres, tout en offrant aux \textbf{élèves et étudiants} un canal de recherche simplifié et un mécanisme de suivi des candidatures. Une telle approche pourrait favoriser une meilleure fluidité dans la mise en relation entre les acteurs et contribuer, à terme, à l'amélioration de l'expérience d'insertion professionnelle.
 	
-	Pour mener à bien ce projet, notre méthodologie générale repose initialement sur une phase de recherche documentaire approfondie et une analyse rigoureuse de l'existant. Nous avons ensuite adopté l'approche UML pour la modélisation et la conception du système, afin de garantir une architecture logicielle robuste. Le développement technique de la solution s'appuie sur des technologies web modernes, sélectionnées pour leur performance et leur capacité à offrir une expérience utilisateur fluide et professionnelle, répondant ainsi aux standards actuels de l'industrie numérique.
+	La démarche adoptée pour cette réalisation comprend une phase préalable d'analyse des besoins et de l'existant, suivie d'une étape de modélisation systémique s'appuyant sur le langage UML. La solution technique envisagée repose sur des technologies web couramment utilisées dans l'industrie pour leur capacité à supporter des interfaces réactives et structurées, tout en respectant les principes d'ergonomie nécessaires à une adoption par les utilisateurs finaux.
 	
-	Le présent document s'organise autour de trois axes de développement fondamentaux. Le premier axe traite du cadre théorique et conceptuel à travers une revue de littérature dédiée aux systèmes de gestion et de recrutement. Le deuxième axe est consacré à l'étude technique et à la conception fonctionnelle de la plateforme, détaillant les besoins spécifiques et les modèles de données. Enfin, le troisième axe présente la réalisation technique, l'implémentation des fonctionnalités clés ainsi que les résultats obtenus à l'issue des phases de test et de déploiement de la solution.
+	Le développement de ce mémoire s'articule autour de trois parties. La première partie expose le cadre théorique et la revue de littérature portant sur les systèmes de gestion et les problématiques de recrutement. La deuxième partie détaille l'analyse fonctionnelle et la conception architecturale de la plateforme. Enfin, la troisième partie décrit l'implémentation technique, les fonctionnalités réalisées et présente les résultats des tests effectués pour valider la solution proposée.
 	
 	% ======================
 	% CHAPITRES (exemples)
 	% ======================
 	\chapter{Revue de la littérature}
 	\section{Définitions et concepts clés}
+	Le recrutement est essentiellement le processus par lequel une organisation identifie et attire des candidats potentiels pour pourvoir à ses besoins en personnel. Dans le milieu académique, le stage est une période d'immersion professionnelle qui permet à l'étudiant et à l'élève de mettre en pratique ses connaissances théoriques. Un système numérique de gestion (SNG) est ici un outil digital qui simplifie et organise la rencontre entre l'offre et la demande de stages pour ces publics.
+
 	\section{Travaux antérieurs}
+	Par le passé, la recherche de stage se faisait principalement par des dépôts physiques de dossiers ou par le bouche-à-oreille. Avec l'évolution technologique, nous avons vu apparaître des annuaires numériques et des plateformes de gestion de candidatures (souvent appelées ATS). Ces outils ont permis de passer d'une gestion papier à une gestion plus fluide des informations pour les étudiants, même si l'adaptation aux profils juniors comme les élèves techniciens reste un sujet d'étude.
+
 	\section{Approches existantes}
+	Aujourd'hui, le paysage du recrutement est dominé par de grands réseaux internationaux comme \textbf{LinkedIn} ou \textbf{Indeed}. Au \textbf{Bénin}, des plateformes locales comme \textbf{Novojob} ou les portails de promotion de l'emploi jouent un rôle crucial en centralisant les opportunités pour les diplômés et les étudiants. Il existe également des plateformes internes à certaines universités qui gèrent les relations avec leurs entreprises partenaires, facilitant ainsi l'insertion de leurs propres étudiants.
+
 	\section{Limites des approches}
+	Bien que ces outils soient performants, certaines limites peuvent être relevées par rapport aux besoins spécifiques de notre public. Il apparaît notamment que les grandes plateformes internationales pourraient présenter une complexité d'usage pour des élèves de lycées techniques ou des étudiants en début de cursus. Par ailleurs, certains portails généralistes semblent parfois manquer de mécanismes de suivi direct et simplifié du statut des candidatures. Enfin, pour les petites entreprises locales, la lourdeur administrative supposée de certains systèmes pourrait constituer un frein à la diffusion d'offres de stages ponctuels.
+
 	\section{Proposition d’une approche de solution}
+	Pour répondre à ces limites, nous proposons une solution plus légère et spécifiquement tournée vers la mise en relation directe. L'idée est d'avoir une interface simple où l'étudiant ou l'élève peut voir les offres disponibles et suivre l'avancement de son dossier en temps réel, sans complications inutiles. Pour les entreprises, l'objectif est de pouvoir diffuser une offre rapidement et de visualiser les profils intéressés de manière organisée, rendant le processus de recrutement plus transparent pour tous.
 	
 	\chapter{Méthodologie et Conception}
 	\section{Présentation de la méthodologie adoptée}
